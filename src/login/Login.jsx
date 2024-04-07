@@ -13,7 +13,7 @@ const Login = ({setLoggedIn}) => {
     });
     const loginAdmin=()=>{
         if(adminDetails.userName!=""&&adminDetails.password!=""){
-            fetch('http://localhost:8800/loginAdmin',{
+            fetch('https://grocerystore-oaf1-qgsr.onrender.com/loginAdmin',{
             "method" : "POST" ,
             "body" : JSON.stringify({adminDetails}),
             "headers" : {
