@@ -30,7 +30,7 @@ export function Orders() {
     const [orders, setorders] = useState([]);
 
     const outForDelievery=(orderId)=>{
-        fetch('http://localhost:8800/outForDelievery',{
+        fetch('https://grocerystore-oaf1-qgsr.onrender.com/outForDelievery',{
             "method" : "POST" ,
             "body" : JSON.stringify({orderId}),
             "headers" : {
@@ -49,7 +49,7 @@ export function Orders() {
     }
 
     const deliever=(orderId)=>{
-        fetch('http://localhost:8800/deliever',{
+        fetch('https://grocerystore-oaf1-qgsr.onrender.com/deliever',{
             "method" : "POST" ,
             "body" : JSON.stringify({orderId}),
             "headers" : {
@@ -67,7 +67,7 @@ export function Orders() {
             }).catch(err => console.log(err));
     }
     useEffect(() => {
-        fetch('http://localhost:8800/getAllOrders')
+        fetch('https://grocerystore-oaf1-qgsr.onrender.com/getAllOrders')
             .then(res => res.json())
             .then(res => {
                 if (res.message === "success") {
@@ -131,7 +131,7 @@ export function Products() {
     const [products, setproducts] = useState([]);
 
     const removeProuct = (productId) =>{
-        fetch('http://localhost:8800/removeProduct',{
+        fetch('https://grocerystore-oaf1-qgsr.onrender.com/removeProduct',{
             "method" : "DELETE" ,
             "body" : JSON.stringify({productId}),
             "headers" : {
@@ -149,7 +149,7 @@ export function Products() {
     }
 
     useEffect(() => {
-        fetch('http://localhost:8800/getProductsDetail')
+        fetch('https://grocerystore-oaf1-qgsr.onrender.com/getProductsDetail')
             .then(res => res.json())
             .then(res => {
                 setproducts(res.products);
@@ -204,7 +204,7 @@ export function AddProduct() {
     }
     let handleproductsubmit = (e) => {
         e.preventDefault();
-        fetch('http://localhost:8800/addNewProduct', {
+        fetch('https://grocerystore-oaf1-qgsr.onrender.com/addNewProduct', {
             "method": "POST",
             "body": JSON.stringify({ProductData}),
             "headers": {
